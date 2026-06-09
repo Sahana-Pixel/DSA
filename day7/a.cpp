@@ -63,6 +63,46 @@ void display(Node* &head)
     }
 }
 
+// void removefirst(Node* &head)
+// {
+//     Node* temp=head;
+//     head=temp->next;
+//     temp->next=nullptr;
+// }
+
+
+void deletemiddle(Node* head,int pos)
+{
+    Node* temp=head;
+    int c=1;
+    Node* t2;
+    while(pos-1!=c)
+    {
+        temp=temp->next;
+        c++;
+    }
+    t2=temp->next->next;
+    temp->next=t2;
+}
+
+void deleteend(Node* head)
+{
+    Node* temp=head;
+    while(temp->next->next!=nullptr)
+    {
+        temp=temp->next;
+    }
+    temp->next=nullptr;
+}
+
+void deletebegin(Node* head)
+{
+    Node* temp=head;
+    temp=temp->next;
+    head=temp;
+}
+
+
 int main()
 {
     Node* n1=new Node(10);
@@ -79,6 +119,10 @@ int main()
     addbegin(head,60);
     cout<<"\n";
     display(head);
+    // removefirst(head);
+    cout<<"\n";
+    display(head);
+
 
     return 0;
 
